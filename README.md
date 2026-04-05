@@ -29,7 +29,7 @@ The biggest thing I wanted to prove to myself was that actually building with AI
 
 **1. Clone the repository**
 ```
-git clone https://github.com/your-username/document-qa.git
+git clone https://github.com/somya95/document-qa.git
 cd document-qa
 ```
 
@@ -55,7 +55,7 @@ GEMINI_API_KEY=your_key_here
 
 **6. Run the app**
 ```
-python app.py
+python app_1_1.py
 ```
 
 ---
@@ -64,7 +64,7 @@ python app.py
 
 Run the app:
 ```
-python app.py
+python app_1_1.py
 ```
 
 Enter the path to your document when prompted, then start asking questions. Type `exit` to end the session.
