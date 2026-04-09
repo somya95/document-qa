@@ -1,6 +1,7 @@
 from google import genai
 import os
 from dotenv import load_dotenv
+import time
 
 load_dotenv()
 
@@ -26,6 +27,12 @@ def ask_question(question, text, conversation_history):
             If the answer is not in the content provided, say so clearly.
             """
 
+    tokens = client.models.count_tokens(
+        model = 'gemini-3-flash-preview',
+        contents=prompt
+    )
+    print(f"\nTokens: {tokens.total_tokens}")
+
     response = client.models.generate_content(
         model="gemini-3-flash-preview",
         contents=prompt
@@ -50,8 +57,11 @@ while True:
         print("Question cannot be blank. Please retry.")
     else:
         try:
+            start = time.time()
             answer = ask_question(doc, user_query, conversation_history)
-            print(f'\nAnswer: {answer}\n')
+            end = time.time()
+            print(f"Response time: {end - start:.2f}s")
+            print(f'Answer: {answer}\n')
 
             # Append to conversation history
             conversation_history.append(
